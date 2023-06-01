@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('good', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->bigInteger('id_image_preview')->nullable();
+            $table->bigInteger('id_image_preview')
+                ->nullable()
+                ->unsigned();
             $table->integer('prize');
             $table->string('description');
             $table->string('size');
