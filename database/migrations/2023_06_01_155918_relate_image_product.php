@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('good', function (Blueprint $table) {
+        Schema::table('products', function (Blueprint $table) {
             $table->foreign('id_image_preview')
                 ->references('id')
-                ->on('image')
+                ->on('images')
                 ->onUpdate('cascade')
                 ->onDelete('SET NULL');
         });
