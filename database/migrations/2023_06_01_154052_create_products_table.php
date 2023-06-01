@@ -21,7 +21,7 @@ return new class extends Migration
                 ->nullable()
                 ->unsigned();
             $table->integer('prize');
-            $table->string('description');
+            $table->longText('description');
             $table->string('size');
             $table->timestamps();
         });
