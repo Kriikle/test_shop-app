@@ -71,7 +71,7 @@
                 <div class="col-md-4 col-lg-2 sidebar">
                     <div class="sidebar-box-2">
                         @foreach($categories as $category)
-                            <h2 class="heading mb-2"><a href="#">{{ $category->name }}</a></h2>
+                            <h2 class="heading mb-2"><a href="/CategoryProducts/{{ $category->id }}">{{ $category->name }}</a></h2>
                         @endforeach
                     </div>
                 </div>

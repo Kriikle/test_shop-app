@@ -21,6 +21,9 @@ Route::get('/shop', function () {
 });
 Route::get('/shop', [App\Http\Controllers\ShopController::class, 'index'])
     ->name('shop');
+Route::get('/CategoryProducts/{id}', [App\Http\Controllers\ShopController::class, 'CategoryProducts'])
+    ->name('CategoryProducts');
+
 Route::get('/cart', function () {
     return view('cart');
 });

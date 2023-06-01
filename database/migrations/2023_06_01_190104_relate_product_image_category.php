@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->foreign('id_image_preview')
+            $table->foreign('image_preview_id')
                 ->references('id')
                 ->on('images')
                 ->onUpdate('cascade')
                 ->onDelete('SET NULL');
-            $table->foreign('id_category')
+            $table->foreign('category_id')
                 ->references('id')
                 ->on('categories')
                 ->onUpdate('cascade')

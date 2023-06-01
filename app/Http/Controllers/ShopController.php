@@ -8,6 +8,17 @@ use Illuminate\Http\Request;
 
 class ShopController extends Controller
 {
+    public function CategoryProducts($id): \Illuminate\Contracts\Support\Renderable
+    {
+        $category = Category::find($id);
+        if ($category == Null){
+            return $this->index();
+        }
+        return view('shop',[
+            'products' => $category->products,
+            'categories' => Category::all()
+        ]);
+    }
 
     /**
      * Show the application dashboard.
@@ -20,5 +31,6 @@ class ShopController extends Controller
             'products' => Product::all(),
             'categories' => Category::all()
         ]);
+
     }
 }

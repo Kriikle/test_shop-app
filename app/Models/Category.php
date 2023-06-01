@@ -12,4 +12,12 @@ class Category extends Model
         'name',
         'description',
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function products(): \Illuminate\Database\Eloquent\Relations\hasMany
+    {
+        return $this->hasMany(Product::class);
+    }
 }
