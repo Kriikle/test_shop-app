@@ -20,8 +20,8 @@
                         @foreach($products as $product)
                         <div class="col-sm-6 col-md-6 col-lg-4 ftco-animate">
                             <div class="product">
-                                <a href="#" class="img-prod"><img class="img-fluid"
-                                        src="{{ asset('assets/images/products'. $product->getImagePath()) }}" alt="Colorlib Template">
+                                <a href="/product/{{ $product->id }}" class="img-prod"><img class="img-fluid"
+                                        src="{{ asset($product->getImagePath()) }}" alt="Colorlib Template">
                                     <div class="overlay"></div>
                                 </a>
                                 <div class="text py-3 px-3">
