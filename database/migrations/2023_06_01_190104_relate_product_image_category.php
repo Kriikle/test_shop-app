@@ -17,6 +17,11 @@ return new class extends Migration
                 ->on('images')
                 ->onUpdate('cascade')
                 ->onDelete('SET NULL');
+            $table->foreign('id_category')
+                ->references('id')
+                ->on('categories')
+                ->onUpdate('cascade')
+                ->onDelete('SET NULL');
         });
     }
 

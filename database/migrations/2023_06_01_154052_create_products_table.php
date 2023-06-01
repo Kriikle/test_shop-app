@@ -17,6 +17,9 @@ return new class extends Migration
             $table->bigInteger('id_image_preview')
                 ->nullable()
                 ->unsigned();
+            $table->bigInteger('id_category')
+                ->nullable()
+                ->unsigned();
             $table->integer('prize');
             $table->string('description');
             $table->string('size');
