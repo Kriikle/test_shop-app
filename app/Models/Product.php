@@ -21,7 +21,10 @@ class Product extends Model
     public function getImagePath(): string
     {
         $img = Image::find($this->getAttribute('image_preview_id'));
-        return  $img->path;
+        if ($img == Null){
+            return  '/assets/images/placeholders/productPreview.jpg';
+        }
+        return  '/assets/images/products' . $img->path;
     }
 
     /**
