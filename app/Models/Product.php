@@ -18,7 +18,7 @@ class Product extends Model
     ];
 
 
-    public function get_image_path(): string
+    public function getImagePath(): string
     {
         $img = Image::find($this->getAttribute('image_preview_id'));
         return  $img->path;
