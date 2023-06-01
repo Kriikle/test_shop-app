@@ -18,10 +18,10 @@
             <div class="row">
                 <div class="col-lg-6 mb-5 ftco-animate">
                     <a href="{{ asset('assets/images/menu-2.jpg') }}" class="image-popup"><img
-                            src="{{ asset('assets/images/product-1.jpg') }}" class="img-fluid" alt="Colorlib Template"></a>
+                            src="{{ asset( $product->getImagePath()) }}" class="img-fluid" alt="Colorlib Template"></a>
                 </div>
                 <div class="col-lg-6 product-details pl-md-5 ftco-animate">
-                    <h3>Young Woman Wearing Dress</h3>
+                    <h3>{{ $product->name }}</h3>
                     <div class="rating d-flex">
                         <p class="text-left mr-4">
                             <a href="#" class="mr-2">5.0</a>
@@ -31,6 +31,7 @@
                             <a href="#"><span class="ion-ios-star-outline"></span></a>
                             <a href="#"><span class="ion-ios-star-outline"></span></a>
                         </p>
+                        <!--
                         <p class="text-left mr-4">
                             <a href="#" class="mr-2" style="color: #000;">100 <span
                                     style="color: #bbb;">Rating</span></a>
@@ -39,8 +40,10 @@
                             <a href="#" class="mr-2" style="color: #000;">500 <span
                                     style="color: #bbb;">Sold</span></a>
                         </p>
+                        -->
                     </div>
-                    <p class="price"><span>$120.00</span></p>
+                    <p class="price"><span>${{ $product->prize / 100 }}</span></p>
+                    <p>{{ $product->descrtption / 100 }}</p>
                     <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a
                         paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
                     <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would

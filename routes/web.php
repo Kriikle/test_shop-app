@@ -21,8 +21,11 @@ Route::get('/shop', function () {
 });
 Route::get('/shop', [App\Http\Controllers\ShopController::class, 'index'])
     ->name('shop');
+# Actually must rewrite on rest api /CategoryProducts/{id}
 Route::get('/CategoryProducts/{id}', [App\Http\Controllers\ShopController::class, 'CategoryProducts'])
     ->name('CategoryProducts');
+Route::get('/product/{id}', [App\Http\Controllers\SingleProductController::class, 'index'])
+    ->name('index');
 
 Route::get('/cart', function () {
     return view('cart');
