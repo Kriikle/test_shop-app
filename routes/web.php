@@ -19,6 +19,8 @@ Route::get('/', function () {
 Route::get('/shop', function () {
     return view('shop');
 });
+Route::get('/shop', [App\Http\Controllers\ShopController::class, 'index'])
+    ->name('shop');
 Route::get('/cart', function () {
     return view('cart');
 });
