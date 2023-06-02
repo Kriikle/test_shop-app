@@ -11,9 +11,7 @@ class SingleProductController extends Controller
     {
         $product = Product::find($id);
         if ($product == Null){
-            $data['title'] = '404';
-            $data['name'] = 'Page not found';
-            return view('errors.404',$data,);
+            return view('errors.404');
         }
         return view('product-single',[
             'product' => Product::find($id),

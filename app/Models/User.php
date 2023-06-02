@@ -53,5 +53,4 @@ class User extends Authenticatable
     {
         return count($this->carts(Cart::class)->get());
     }
-
 }

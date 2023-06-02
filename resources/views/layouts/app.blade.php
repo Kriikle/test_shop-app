@@ -67,9 +67,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/shop">Shop</a>
                     </li>
-                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                    <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="/blog" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="/contacts" class="nav-link">Contact</a></li>
                     <li class="nav-item">&nbsp;&nbsp;&nbsp;</li>
 
                     @guest
@@ -83,6 +83,8 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
+                                <li class="nav-item cta cta-colored"><a href="/cart" class="nav-link"><span
+                                            class="icon-shopping_cart"></span>[0]</a></li>
                         @endif
                     @else
                         <li class="nav-item dropdown">
@@ -105,11 +107,12 @@
                                 </form>
                             </div>
                         </li>
+
+                        <li class="nav-item cta cta-colored"><a href="/cart" class="nav-link"><span
+                                    class="icon-shopping_cart"></span>[{{ Auth::user()->count_carts() }}]</a></li>
                     @endguest
 
 
-                    <li class="nav-item cta cta-colored"><a href="/cart" class="nav-link"><span
-                                class="icon-shopping_cart"></span>[0]</a></li>
 
                 </ul>
             </div>

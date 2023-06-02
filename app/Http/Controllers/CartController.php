@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
+
     public function index(): \Illuminate\Contracts\Support\Renderable
     {
         $user = Auth::user();

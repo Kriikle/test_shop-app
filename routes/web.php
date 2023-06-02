@@ -29,6 +29,8 @@ Route::get('/shop', [App\Http\Controllers\ShopController::class, 'index'])
 # Actually must rewrite on rest api /CategoryProducts/{id}
 Route::get('/CategoryProducts/{id}', [App\Http\Controllers\ShopController::class, 'CategoryProducts'])
     ->name('CategoryProducts');
+Route::post('/addToCart/', [App\Http\Controllers\ShopController::class, 'addToCart'])
+    ->name('addToCart');
 Route::get('/product/{id}', [App\Http\Controllers\SingleProductController::class, 'index'])
     ->name('index');
 

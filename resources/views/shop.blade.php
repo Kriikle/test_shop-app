@@ -41,9 +41,17 @@
                                             </p>
                                         </div>
                                     </div>
+                                    <form method="post" action="/addToCart" id="addToCart{{$product->id}}" hidden>
+                                        @csrf <!-- {{ csrf_field() }} -->
+                                        <input type="text" name="id_product" id="id_product" value="{{ $product->id }}"/>
+                                    </form>
                                     <p class="bottom-area d-flex px-3">
-                                        <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i
-                                                    class="ion-ios-add ml-1"></i></span></a>
+                                        <a  onclick="document.getElementById('addToCart{{$product->id}}').submit()"
+                                            href="#" class="add-to-cart text-center py-2 mr-1">
+                                            <span>Add to cart
+                                                <i class="ion-ios-add ml-1"></i>
+                                            </span>
+                                        </a>
                                         <a href="#" class="buy-now text-center py-2">Buy now<span><i
                                                     class="ion-ios-cart ml-1"></i></span></a>
                                     </p>
