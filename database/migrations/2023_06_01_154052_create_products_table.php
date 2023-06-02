@@ -20,7 +20,8 @@ return new class extends Migration
             $table->bigInteger('category_id')
                 ->nullable()
                 ->unsigned();
-            $table->integer('prize');
+            $table->integer('prize')
+                ->unsigned();
             $table->longText('description');
             $table->string('size');
             $table->timestamps();

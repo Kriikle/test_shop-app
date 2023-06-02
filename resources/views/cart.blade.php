@@ -29,60 +29,43 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            @if($myCart != Null)
+                                @foreach($myCart as $cart)
                                 <tr class="text-center">
                                     <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a>
                                     </td>
 
                                     <td class="image-prod">
-                                        <div class="img" style="background-image:url({{ asset('assets/images/product-3.jpg') }});"></div>
+                                        <div class="img" style="background-image:url({{ $cart->product->getImagePath() }});"></div>
                                     </td>
 
                                     <td class="product-name">
-                                        <h3>Young Woman Wearing Dress</h3>
-                                        <p>Far far away, behind the word mountains, far from the countries</p>
+                                        <h3>{{ $cart->product->name }}</h3>
+                                        <p>{{ $cart->product->description }}</p>
                                     </td>
 
-                                    <td class="price">$4.90</td>
+                                    <td class="price">${{ $cart->product->prize / 100 }}</td>
 
                                     <td class="quantity">
                                         <div class="input-group mb-3">
                                             <input type="text" name="quantity" class="quantity form-control input-number"
-                                                value="1" min="1" max="100">
+                                                value="{{ $cart->count }}" min="1" max="100">
                                         </div>
                                     </td>
-
-                                    <td class="total">$4.90</td>
+                                    <td class="total">${{ $cart->product->prize / 100 * $cart->count}}</td>
                                 </tr><!-- END TR-->
-
+                                @endforeach
+                            @else
                                 <tr class="text-center">
-                                    <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a>
-                                    </td>
-
-                                    <td class="image-prod">
-                                        <div class="img" style="background-image:url({{ asset('assets/images/product-4.jpg') }});"></div>
-                                    </td>
-
-                                    <td class="product-name">
-                                        <h3>Young Woman Wearing Dress</h3>
-                                        <p>Far far away, behind the word mountains, far from the countries</p>
-                                    </td>
-
-                                    <td class="price">$15.70</td>
-
-                                    <td class="quantity">
-                                        <div class="input-group mb-3">
-                                            <input type="text" name="quantity" class="quantity form-control input-number"
-                                                value="1" min="1" max="100">
-                                        </div>
-                                    </td>
-
-                                    <td class="total">$15.70</td>
-                                </tr><!-- END TR-->
+                                    <td colspan="6"> <a href="/login">Login</a> or<a href="/register"> register</a> to add products to cart </td>
+                                </tr>
+                            @endif
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
+            @if($myCart != Null)
             <div class="row justify-content-center">
                 <div class="col col-lg-5 col-md-6 mt-5 cart-wrap ftco-animate">
                     <div class="cart-total mb-3">
@@ -97,7 +80,7 @@
                         </p>
                         <p class="d-flex">
                             <span>Discount</span>
-                            <span>$3.00</span>
+                            <span>$0.00</span>
                         </p>
                         <hr>
                         <p class="d-flex total-price">
@@ -105,10 +88,12 @@
                             <span>$17.60</span>
                         </p>
                     </div>
+
                     <p class="text-center"><a href="/checkout" class="btn btn-primary py-3 px-4">Proceed to Checkout</a>
                     </p>
                 </div>
             </div>
+            @endif
         </div>
     </section>
 @endsection

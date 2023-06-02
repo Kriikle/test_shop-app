@@ -32,9 +32,9 @@ Route::get('/CategoryProducts/{id}', [App\Http\Controllers\ShopController::class
 Route::get('/product/{id}', [App\Http\Controllers\SingleProductController::class, 'index'])
     ->name('index');
 
-Route::get('/cart', function () {
-    return view('cart');
-});
+Route::get('/cart', [App\Http\Controllers\CartController::class, 'index'])
+    ->name('cart');
+
 Route::get('/contact', function () {
     return view('contact');
 });
