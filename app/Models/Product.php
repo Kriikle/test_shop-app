@@ -24,7 +24,7 @@ class Product extends Model
         if ($img == Null){
             return  '/assets/images/placeholders/productPreview.jpg';
         }
-        return  '/assets/images/products' . $img->path;
+        return  $img->path;
     }
 
     /**
