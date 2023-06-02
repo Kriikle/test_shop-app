@@ -23,7 +23,7 @@ return new class extends Migration
             $table->integer('prize')
                 ->unsigned();
             $table->longText('description');
-            $table->string('size');
+            $table->string('size')->nullable();
             $table->timestamps();
         });
     }
