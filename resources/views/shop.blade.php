@@ -17,6 +17,7 @@
             <div class="row">
                 <div class="col-md-8 col-lg-10 order-md-last">
                     <div class="row">
+                        @isset($products)
                         @foreach($products as $product)
                         <div class="col-sm-6 col-md-6 col-lg-4 ftco-animate">
                             <div class="product">
@@ -50,6 +51,7 @@
                             </div>
                         </div>
                         @endforeach
+                        @endisset
                     </div>
                     <div class="row mt-5">
                         <div class="col text-center">
@@ -70,9 +72,11 @@
 
                 <div class="col-md-4 col-lg-2 sidebar">
                     <div class="sidebar-box-2">
+                        @isset($categories)
                         @foreach($categories as $category)
                             <h2 class="heading mb-2"><a href="/CategoryProducts/{{ $category->id }}">{{ $category->name }}</a></h2>
                         @endforeach
+                        @endisset
                     </div>
                 </div>
             </div>
