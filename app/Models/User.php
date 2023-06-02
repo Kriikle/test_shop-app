@@ -53,4 +53,10 @@ class User extends Authenticatable
     {
         return count($this->carts(Cart::class)->get());
     }
+
+
+    public function admin(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Admin::class);
+    }
 }
