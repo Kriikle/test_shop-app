@@ -32,7 +32,12 @@
                             @if($myCart != Null)
                                 @foreach($myCart as $cart)
                                 <tr class="text-center">
-                                    <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a>
+                                    <td class="product-remove">
+                                        <form method='post' action="/cartDelete" hidden id="deleteCart{{ $cart->id }}">
+                                            @csrf <!-- {{ csrf_field() }} -->
+                                            <input type="text" name="id_cart" id="id_cart" value="{{ $cart->id }}"/>
+                                        </form>
+                                        <a href="#" onclick="document.getElementById('deleteCart{{$cart->id}}').submit()"><span class="ion-ios-close"></span></a>
                                     </td>
 
                                     <td class="image-prod">

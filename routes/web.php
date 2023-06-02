@@ -14,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Auth::routes(['verify' => true]);
+#Errors
+Route::get('/404', function () {
+    return view('errors.404');
+});
+Route::get('/401', function () {
+    return view('errors.401');
+});
+
 
 Route::get('/', function () {
     return view('home');
@@ -21,9 +29,8 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('home');
 });
-Route::get('/shop', function () {
-    return view('shop');
-});
+
+# Shop
 Route::get('/shop', [App\Http\Controllers\ShopController::class, 'index'])
     ->name('shop');
 # Actually must rewrite on rest api /CategoryProducts/{id}
@@ -34,8 +41,11 @@ Route::post('/addToCart/', [App\Http\Controllers\ShopController::class, 'addToCa
 Route::get('/product/{id}', [App\Http\Controllers\SingleProductController::class, 'index'])
     ->name('index');
 
+# Cart
 Route::get('/cart', [App\Http\Controllers\CartController::class, 'index'])
     ->name('cart');
+Route::post('/cartDelete', [App\Http\Controllers\CartController::class, 'cartDelete'])
+    ->name('cartDelete');
 
 Route::get('/contact', function () {
     return view('contact');

@@ -9,6 +9,19 @@ use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
+    public function cartDelete(Request $request){
+        $id = $request->input('id_cart');
+        $cart = Cart::find($id);
+        if ($cart == null){
+            return redirect('/404');
+        }
+        if (Auth::id() != $cart->user_id){
+            return redirect('/401');
+        }
+        $cart->delete();
+        return redirect('/cart');
+    }
+
 
     public function index(): \Illuminate\Contracts\Support\Renderable
     {

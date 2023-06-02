@@ -8,18 +8,20 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class ShopController extends Controller
 {
-    public function addToCart(Request $request){
+    public function addToCart(Request $request)
+    {
         $id = $request->input('id_product');
         $product = Product::find($id);
         if ($product == Null){
-            return view('errors.404');
+            return Redirect('/404');
         }
         $user = Auth::user();
         if ($user == Null){
-            return view('errors.401');
+            return redirect('/401');
         }
 
         $userCarts = $user->carts();
